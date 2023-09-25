@@ -138,6 +138,8 @@ def save_xlsx(vd, p, *sheets):
 
             row = []
             for col, v in dispvals.items():
+                if v is None:
+                    v = ""
                 if col.type == date:
                     v = datetime.datetime.fromtimestamp(int(v.timestamp()))
                 elif not vd.isNumeric(col):
